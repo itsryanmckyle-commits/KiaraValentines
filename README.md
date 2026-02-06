@@ -1,52 +1,61 @@
-<script>
-  let taskCompleted = false;
-  let noClickedOnce = false;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine 💌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  function sayYes() {
-    if (!taskCompleted) {
-      document.querySelector(".card").innerHTML = `
-        <h1>ryanmn</h1>
-        <h2>Task Time 😏</h2>
-        <p>Before you can say YES...</p>
-        <p><strong>Task:</strong> Send me a kiss emoji 😘 on WhatsApp 💬</p>
-        <button class="yes" onclick="completeTask()">I did it 😘</button>
-      `;
-    } else {
-      showSuccess();
-    }
-  }
+  <div class="stage">
+    <div class="card">
 
-  function completeTask() {
-    taskCompleted = true;
-    showSuccess();
-  }
+      <div class="bear" id="bear">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
 
-  function showSuccess() {
-    document.querySelector(".card").innerHTML = `
-      <h1>ryanmn</h1>
-      <h2>Yay!!! 🥰💖</h2>
-      <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
-      <p>You’re officially my Valentine 💝</p>
-    `;
-  }
+        <div class="head">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="snout">
+            <div class="nose"></div>
+          </div>
+        </div>
 
-  function handleNoClick() {
-    const msg = document.getElementById("noMessage");
-    if (!noClickedOnce) {
-      noClickedOnce = true;
-      msg.textContent = "Kiara, are you sure? 🥺💔";
-    }
-    moveNo();
-  }
+        <div class="body"></div>
 
-  function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    if (!noBtn) return;
+        <div class="hands">
+          <div class="hand left"></div>
+          <div class="hand right"></div>
+        </div>
 
-    const x = Math.random() * 250 - 125;
-    const y = Math.random() * 250 - 125;
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
 
-    noBtn.style.position = "relative";
-    noBtn.style.transform = translate(${x}px, ${y}px);
-  }
-</script>
+          <div class="letter">
+            <p id="letterText"></p>
+          </div>
+        </div>
+      </div>
+
+      <h1>Will you be my Valentine? 💌</h1>
+
+      <div class="buttons" id="buttons">
+        <button id="yesBtn" class="btn yes">Yes</button>
+        <button id="noBtn" class="btn no">No</button>
+      </div>
+
+      <button id="restartBtn" class="btn restart hidden">
+        Restart
+      </button>
+
+      <p class="hint">Choose wisely… 😈</p>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
